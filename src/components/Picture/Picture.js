@@ -2,7 +2,7 @@ import React from 'react';
 import { useGLTF } from '@react-three/drei';
 
 const Picture = ({ url, scale, position, rotation, metalness, roughness }) => {
-  const { scene } = useGLTF(url, true);
+  const { scene } = useGLTF(url);
   scene.traverse(function (child) {
     if (child.isMesh) {
       child.castShadow = true;

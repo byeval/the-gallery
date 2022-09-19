@@ -2,6 +2,8 @@ import React from 'react';
 import Picture from '../Picture/Picture';
 import Display from '../Display/Display';
 
+// https://next-ubanner.oss-cn-beijing.aliyuncs.com/AE_BODY_MOVIN/TMP/86cde3c0fb35f17b88a5aced927b116e/3d_architecture__photo_frame/scene.gltf
+
 const Art = () => {
   return (
     <>

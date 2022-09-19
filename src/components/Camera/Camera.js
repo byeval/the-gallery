@@ -1,15 +1,23 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { useThree } from '@react-three/fiber';
 
 const Camera = (props) => {
-  const ref = useRef();
-  const { setDefaultCamera } = useThree();
+  const cameraRef = useRef();
+  const set = useThree(({ set }) => set);
+  const size = useThree(({ size }) => size);
 
-  useEffect(() => {
-    setDefaultCamera(ref.current);
-  }, [setDefaultCamera]);
+  useLayoutEffect(() => {
+    if (cameraRef.current) {
+      cameraRef.current.aspect = size.width / size.height;
+      cameraRef.current.updateProjectionMatrix();
+    }
+  }, [size, props]);
 
-  return <perspectiveCamera ref={ref} {...props} />;
+  useLayoutEffect(() => {
+    set({ camera: cameraRef.current });
+  }, [set]);
+
+  return <perspectiveCamera ref={cameraRef} {...props} />;
 };
 
 export default Camera;

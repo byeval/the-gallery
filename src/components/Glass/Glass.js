@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 
 const Glass = ({ scale, position, rotation, url }) => {
-  const { scene } = useGLTF(url, true);
+  const { scene } = useGLTF(url);
   const newMaterial = new THREE.MeshPhysicalMaterial({
     color: 'skyblue',
   });

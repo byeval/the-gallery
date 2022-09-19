@@ -7,21 +7,26 @@ const Loading = () => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    THREE.DefaultLoadingManager.onLoad = () => set(true);
-    THREE.DefaultLoadingManager.onProgress = (url, itemsLoaded, itemsTotal) =>
+    THREE.DefaultLoadingManager.onLoad = () => {
+      console.log('loaded');
+      set(true);
+    };
+    THREE.DefaultLoadingManager.onProgress = (_, itemsLoaded, itemsTotal) => {
+      console.log(itemsLoaded, itemsTotal);
       setWidth((itemsLoaded / itemsTotal) * 200);
+    };
   }, []);
 
-  const props = useTransition(finished, null, {
+  const transitions = useTransition(finished, {
     from: { opacity: 1, width: 0 },
     leave: { opacity: 0 },
     update: { width },
   });
 
-  return props.map(
-    ({ item: finished, key, props: { opacity, width } }) =>
-      !finished && (
-        <a.div className="loading" key={key} style={{ opacity }}>
+  return transitions(
+    ({ opacity, width }, item) =>
+      !item && (
+        <a.div className="loading" key={item.key} style={{ opacity }}>
           <h1 className="welcome">The Gallery</h1>
           <div className="loading-bar-container">
             <a.div className="loading-bar" style={{ width }} />

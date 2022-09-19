@@ -8,14 +8,16 @@ import usePlayerControls from '../usePlayerControls/usePlayerControls';
 const Player = (props) => {
   const { camera } = useThree();
   const { forward, backward, left, right, jump, speed } = usePlayerControls();
-  const [ref, api] = useSphere(() => ({
-    mass: 1,
-    type: 'Dynamic',
-    position: [-11, 5, 33],
-    rotation: [0, 0, Math.PI / 2],
-    args: 5,
-    ...props,
-  }));
+  const [ref, api] = useSphere(() => [
+    {
+      mass: 1,
+      type: 'Dynamic',
+      position: [-11, 5, 33],
+      rotation: [0, 0, Math.PI / 2],
+      args: 5,
+      ...props,
+    },
+  ]);
 
   const velocity = useRef([0, 0, 0]);
   useEffect(() => {

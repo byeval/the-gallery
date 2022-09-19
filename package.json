@@ -1,6 +1,5 @@
 {
   "name": "the-gallery",
-  "homepage": "https://deanssmart.github.io/the-gallery/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

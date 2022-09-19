@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/cannon';
-import { Stars, Sky /* Stats */ } from '@react-three/drei';
+import { Stars, Sky, Stats } from '@react-three/drei';
 import Moon from '../Moon/Moon';
 import Building from '../Building/Building';
 import Ground from '../Ground/Ground';
@@ -72,7 +72,7 @@ const App = () => {
           </Suspense>
           <Player />
         </Physics>
-        {/* <Stats  showPanel={0} /> */}
+        <Stats showPanel={0} />
       </Canvas>
     </>
   );

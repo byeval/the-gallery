@@ -2,6 +2,9 @@ import React from 'react';
 import { useBox } from '@react-three/cannon';
 import { useGLTF } from '@react-three/drei';
 
+// https://next-ubanner.oss-cn-beijing.aliyuncs.com/AE_BODY_MOVIN/TMP/86cde3c0fb35f17b88a5aced927b116e/3d_architecture__photo_frame/scene.gltf
+// https://next-ubanner.oss-cn-beijing.aliyuncs.com/AE_BODY_MOVIN/TMP/9c2d789d9f745b52ad21b84ba833a5cb/picture_frame/scene.gltf
+
 const Bench = ({
   url,
   scale,
@@ -16,7 +19,7 @@ const Bench = ({
     position: physicsPosition,
   }));
 
-  const { scene } = useGLTF(url, true);
+  const { scene } = useGLTF(url);
 
   scene.traverse(function (child) {
     if (child.isMesh) {
