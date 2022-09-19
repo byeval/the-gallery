@@ -1,49 +1,45 @@
 import React, { useMemo } from 'react';
 import * as THREE from 'three';
-import { useLoader } from 'react-three-fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { draco } from 'drei';
+import { useGLTF } from '@react-three/drei';
 
-const WindowFrame = ({ 
-    scale,
-    position,
-    rotation,
-    modelUrl,
-    mapUrl,
-    normalMapUrl
-
+const WindowFrame = ({
+  scale,
+  position,
+  rotation,
+  modelUrl,
+  mapUrl,
+  normalMapUrl,
 }) => {
-    let newMaterial, map;
-    const { scene } = useLoader(GLTFLoader, modelUrl, draco("https://www.gstatic.com/draco/versioned/decoders/1.4.0/"));
+  let newMaterial, map;
+  const { scene } = useGLTF(modelUrl, true);
 
-    newMaterial = new THREE.MeshPhysicalMaterial();
-    
-    map = useMemo(() => new THREE.TextureLoader().load(mapUrl), [mapUrl]);
-    map.flipY=false;
+  newMaterial = new THREE.MeshPhysicalMaterial();
 
-    scene.traverse( function ( child ) {
-        if ( child.isMesh ) { 
-            child.material = newMaterial;
-            child.castShadow = true;
-            child.receiveShadow = true;
-            child.material.metalness = 0.9;
-            child.material.clearcoat = 1;
-            child.material.clearcoatRoughness = 0.6;
-            child.material.roughness = 0.9;
-            child.material.map = map;
-        }
-    })
+  map = useMemo(() => new THREE.TextureLoader().load(mapUrl), [mapUrl]);
+  map.flipY = false;
 
-  
-    return (
-        <primitive 
-            scale={scale}
-            position={position}
-            rotation={rotation}
-            object={scene}
-            dispose={null}
-        /> 
-    )
-  }
+  scene.traverse(function (child) {
+    if (child.isMesh) {
+      child.material = newMaterial;
+      child.castShadow = true;
+      child.receiveShadow = true;
+      child.material.metalness = 0.9;
+      child.material.clearcoat = 1;
+      child.material.clearcoatRoughness = 0.6;
+      child.material.roughness = 0.9;
+      child.material.map = map;
+    }
+  });
 
-  export default WindowFrame;
+  return (
+    <primitive
+      scale={scale}
+      position={position}
+      rotation={rotation}
+      object={scene}
+      dispose={null}
+    />
+  );
+};
+
+export default WindowFrame;

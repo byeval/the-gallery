@@ -2,20 +2,20 @@
 
 ![app preview](./public/assets/Images/The-Gallery-Preview.jpg)
 
-### View the app online 
+### View the app online
 
 Open the live app in your browser with this link: https://deanssmart.github.io/the-gallery/
 
 ## Intro
 
-Interactive 3D art gallery to showcase some of my drawings and paintings  
+Interactive 3D art gallery to showcase some of my drawings and paintings
 
 ### Technologies
 
 - JavaScript
 - Three.js
 - React
-- react-three-fiber
+- @react-three/fiber
 - JSX
 - HTML/CSS
 - Git (version managed)
@@ -23,8 +23,8 @@ Interactive 3D art gallery to showcase some of my drawings and paintings
 
 ### Functionality and Features
 
-- First-person view and controls 
-- WASD movement 
+- First-person view and controls
+- WASD movement
 - MOUSE to look
 - SHIFT to run
 - SPACE to fly
@@ -41,37 +41,37 @@ Interactive 3D art gallery to showcase some of my drawings and paintings
 - Hold SHIFT to run (there is no security guard in this gallery)
 - Hold SPACE to fly (because why not!)
 - Press N at any time to toggle the environment between night and day
-- If you have a slower laptop and the frame rate is a bit low press P, this will turn off all the spotlights on the paintings so should allow the app to runs smoother although it won't look as visually intended 
+- If you have a slower laptop and the frame rate is a bit low press P, this will turn off all the spotlights on the paintings so should allow the app to runs smoother although it won't look as visually intended
 - (I intend to bake the lighting at some point in the future)
 
 ## Setup on your machine
 
-1. Create a local directory on your machine 
-2. Run the following code in your command line to navigate into that directory:   
+1. Create a local directory on your machine
+2. Run the following code in your command line to navigate into that directory:
 
-```shell 
+```shell
 $ cd ~/your-directory-name-here
 ```
 3. Copy the SSH key from this GitHub repository `git@github.com:deanssmart/the-gallery.git`
 
-4. Run the following code in your command line to clone the repo to your machine (you can change the app-name to what you desire):  
+4. Run the following code in your command line to clone the repo to your machine (you can change the app-name to what you desire):
 
-```shell 
+```shell
 git clone git@github.com:deanssmart/the-gallery.git <app-name>
 ```
 5. Navigate to your new app directory (the app name you just picked):
 
-```shell 
+```shell
 $ cd app-name
 ```
 6. Install the dependencies:
 
-```shell 
+```shell
 npm i
 ```
 7. Run the following command to launch the app in your default browser at http://localhost:3000/:
 
-```shell 
+```shell
 npm start
 ```
 8. Enjoy
@@ -80,7 +80,7 @@ npm start
 
 ### 3D Models (Sketchfab)
 
-- Adapted fancy picture frame from Jamie McFarlane https://skfb.ly/6QZpO 
+- Adapted fancy picture frame from Jamie McFarlane https://skfb.ly/6QZpO
 - Adapted square picture frame from Lonit https://skfb.ly/6WMFM
 - Adapted long picture frame from ROOFUSMAN1976 https://skfb.ly/6SKu9
 - Adapted Victorian window from expy https://skfb.ly/6qupO
